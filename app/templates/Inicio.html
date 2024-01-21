@@ -1,12 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Esto es el inicio de la aplicacion de tienda virtual</title>
+{% load static %}
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navegador Matilde</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'lib/adminelt/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'lib/adminelt/css/adminlte.min.css' %}">
 </head>
-<body>
-    <p>
-        Esta es una prueba de la aplicacion
-    </p>
-</body>
-</html>
+
+<body class="hold-transition layout-top-nav">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  {% include 'header.html' %}
+  <!-- /.navbar -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-sm-7">
+            <h1 class="m-0"> Bienvenidos a Matilde atelier</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-5">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="#">Productos</a></li>
+              <li class="breadcrumb-item active">Contactanos</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+         <div class="row mb-2">
+           <div class="col-sm-7">
+             <h3>Esta es tu nueva experiencia en accesorios</h3>
+           </div>
+
+          </div>
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="{% static 'lib/adminelt/plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'lib/adminelt/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'lib/adminelt/js/adminlte.min.js' %}"></script>
+
+
+
+</body></html>
