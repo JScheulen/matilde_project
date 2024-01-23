@@ -85,7 +85,7 @@ DATABASES = {
 
 #DATABASES = {
 #    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycop#g2',
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #        'NAME': 'db_productos',
 #        'USER': 'postgres',
 #        'PASSWORD': '19490287',

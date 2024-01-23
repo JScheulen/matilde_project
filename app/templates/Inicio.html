@@ -1,88 +1,103 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Navegador Matilde</title>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navegador Matilde</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{% static 'lib/adminelt/plugins/fontawesome-free/css/all.min.css' %}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{% static 'lib/adminelt/css/adminlte.min.css' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'lib/adminelt/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'lib/adminelt/css/adminlte.min.css' %}">
 </head>
 
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 
-  <!-- Navbar -->
-  {% include 'header.html' %}
-  <!-- /.navbar -->
+    <!-- Navbar -->
+    {% include 'header.html' %}
+    <!-- /.navbar -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container">
-        <div class="row mb-2">
-          <div class="col-sm-7">
-            <h1 class="m-0"> Bienvenidos a Matilde atelier</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-5">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item"><a href="#">Productos</a></li>
-              <li class="breadcrumb-item active">Contactanos</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-         <div class="row mb-2">
-           <div class="col-sm-7">
-             <h5>Tu nueva experiencia en accesorios</h5>
-           </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container">
+                <div class="row mb-2">
+                    <div class="col-sm-7">
+                        <h1 class="m-0"> Bienvenidos a Matilde atelier</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-5">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="#">Productos</a></li>
+                            <li class="breadcrumb-item active">Contactanos</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+                <div class="row mb-2">
+                    <div class="col-sm-7">
+                        <h5>Tu nueva experiencia en accesorios</h5>
+                    </div>
 
-          </div>
-      </div><!-- /.container-fluid -->
+                </div>
+            </div><!-- /.container-fluid -->
+
+
+
+
+
+
+        </div>
+        <!-- /.content-header -->
+
+
+        <div class="container card card-default">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-search"></i>
+                    Listado de Categorias
+                </h3>
+            </div>
+
+            <div class="card-body">
+
+
+                <!-- /.content -->
+            </div>
+
+
+        </div>
+
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+
+        <!-- Main Footer -->
+
+
+
+
     </div>
-    <!-- /.content-header -->
+    <!-- ./wrapper -->
+    {% include 'footer.html' %}
+    <!-- REQUIRED SCRIPTS -->
 
-    <!-- Main content -->
-<div>
-  <p class="content container m-5 " >Aqui comenzamos nuestro contenido</p>
-</div>
-    <!-- /.content -->
-  </div>
-
-
-  <div class="content-wrapper">
-
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-
-  {% include 'footer.html' %}
+    <!-- jQuery -->
+    <script src="{% static 'lib/adminelt/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'lib/adminelt/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static 'lib/adminelt/js/adminlte.min.js' %}"></script>
 
 
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="{% static 'lib/adminelt/plugins/jquery/jquery.min.js' %}"></script>
-<!-- Bootstrap 4 -->
-<script src="{% static 'lib/adminelt/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<!-- AdminLTE App -->
-<script src="{% static 'lib/adminelt/js/adminlte.min.js' %}"></script>
-
-
-
-</body></html>
+    </body>
+</html>
