@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
 {% load static %}
-<nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+<nav class="main-header navbar navbar-expand-md navbar-navy navbar-dark">
 
     <div class="container">
       <a href="#" class="navbar-brand">
         <img src="{% static 'lib/adminelt/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Matilde Atelier</span>
+        <span class="brand-text ">Matilde Atelier</span>
       </a>
 
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,41 +27,32 @@
           </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Categoria</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="#" class="dropdown-item text-end">Pulseras </a></li>
-              <li><a href="#" class="dropdown-item text-end">Collares</a></li>
-              <li><a href="#" class="dropdown-item text-end">Anillos</a></li>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow bg-navy " style='opacity: .9'>
+              <li><a href="#" class="dropdown-item text-end text-light">Pulseras </a></li>
+              <li><a href="#" class="dropdown-item text-end text-light">Collares</a></li>
+              <li><a href="#" class="dropdown-item text-end text-light">Anillos</a></li>
 
               <li class="dropdown-divider"></li>
 
               <!-- Level two dropdown-->
               <li class="dropdown-submenu dropdown-hover">
-                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle text-end">Para Bodas</a>
+                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle text-end text-light">Para Bodas</a>
                 <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
                   <li>
-                    <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
+                    <a tabindex="-1" href="#" class="dropdown-item">Tocados</a>
                   </li>
 
                   <!-- Level three dropdown-->
-                  <li class="dropdown-submenu">
-                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                      <li><a href="#" class="dropdown-item">3rd level</a></li>
-                      <li><a href="#" class="dropdown-item">3rd level</a></li>
-                    </ul>
-                  </li>
-                  <!-- End Level three -->
-
-                  <li class="dropdown-submenu">
-                    <a id="dropdown_nuevo" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
+                   <li class="dropdown-submenu">
+                    <a id="dropdown_nuevo" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Corssetes</a>
                      <ul aria-labelledby="dropdown_nuevo" class="dropdown-menu">
                       <li>
                         <a href="#" class="dropdown-item">nivel modificado</a>
                       </li>
                     </ul>
                   </li>
-
                   <li><a href="#" class="dropdown-item">level 2</a></li>
+                  <!-- End Level three -->
                 </ul>
               </li>
               <!-- End Level two -->

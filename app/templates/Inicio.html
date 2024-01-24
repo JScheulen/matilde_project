@@ -74,7 +74,7 @@
                         <th scope="col">Opciones</th>
                     </thead>
                     <tbody>
-                        {% for c in categories %}
+                        {% for c in object_list %}
                             <tr>
                                 <td>{{c.id}}</td>
                                 <td>{{c.nombre}}</td>
@@ -87,6 +87,8 @@
 
                             </tr>
                         {% endfor %}
+
+
                     </tbody>
 
 
@@ -127,5 +129,5 @@
     <script src="{% static 'lib/adminelt/js/adminlte.min.js' %}"></script>
 
 
-    </body>
+</body>
 </html>
