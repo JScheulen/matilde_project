@@ -19,10 +19,11 @@ from django.urls import path
 
 from erp.views import Inicio
 
-from erp.vistas.category.views import producto, Productos_lista
+from erp.vistas.category.views import producto, Productos_lista, Productos_CreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Productos_lista.as_view()),
-    path('categoria/', producto)
+    path('inicio/', Productos_lista.as_view()),
+    path('categoria/', producto),
+    path('add/', Productos_CreateView.as_view())
 ]

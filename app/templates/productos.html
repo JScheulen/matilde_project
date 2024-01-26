@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navegador Matilde</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'lib/adminelt/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'lib/adminelt/css/adminlte.min.css' %}">
+</head>
+
+{% include 'header.html' %}
+
+<div>
+    <form method="post" action=".">
+        <
+        <div class="container card card-default">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <!--i class="fas fa-search"></i-->
+                    Listado de Categorias
+                </h3>
+
+            </div>
+
+            <div class="card-body">
+                {% csrf_token %}
+                {{ form }}
+
+
+                <!-- /.content -->
+            </div>
+            <div class="card-fooder">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Guardar Registro</button>
+            </div>
+
+
+        </div>
+
+
+    </form>
+
+</div>
