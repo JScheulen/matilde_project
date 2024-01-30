@@ -31,7 +31,28 @@
 
             <div class="card-body">
                 {% csrf_token %}
-                {{ form }}
+
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    <h5><i class="icon fas fa-ban"></i>Ha ocurrido un error al querer guardar el registro</h5>
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    <label for="email">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
 
 
                 <!-- /.content -->

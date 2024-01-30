@@ -23,7 +23,7 @@ from erp.vistas.category.views import producto, Productos_lista, Productos_Creat
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/', Productos_lista.as_view()),
+    path('inicio/', Productos_lista.as_view(), name='iniciar'),
     path('categoria/', producto),
     path('add/', Productos_CreateView.as_view())
 ]
