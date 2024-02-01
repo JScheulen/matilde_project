@@ -6,17 +6,14 @@
 <body class="hold-transition layout-top-nav">
 
 {% extends 'encabezado.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container">
-<div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Sony</button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Tablet</a></li>
-        <li><a class="dropdown-item" href="#">Smartphone</a></li>
-      </ul>
-    </div>
+<div>
+    <img src="{% static 'lib/adminelt/img/matilde_front.png' %}" class="img-fluid" style="width: 100xp">
 </div>
+
+
 
 {% endblock %}
 </body>
