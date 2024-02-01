@@ -3,24 +3,36 @@
 {% load static %}
 <head>
     <title>Matilde Tienda</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'lib/adminelt/img/Matilde Atelier_Logo horizontal secundario líneas negras (sin fondo).png' %}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="{% static 'lib/bootstrap-5.3.2-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'lib/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js' %}"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!--style>
+        body{
+            background-image: url("{% static 'lib/adminelt/img/Matilde Atelier_Papel para envolver (diseño).jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+    </style-->
 </head>
-<body>
+<body class="hold-transition layout-top-nav">
 
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="navbarCollapse">
+<nav class="navbar navbar-expand-sm navbar-light fixed-top" data-aos="zoom-out-left" id="navbarCollapse" style="background-color: #E9CFD7;height: 80px;">
     <a class="navbar-brand" href="#">
-        <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo horizontal secundario (sin fondo).png' %}"
-             alt="Logo" style="width:60px;" class="rounded-pill">
+        <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo horizontal secundario líneas negras (sin fondo).png' %}"
+             alt="Logo" style="width:70px;" class="rounded-pill">
         <span>Matilde Atelier</span>
     </a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="{% url 'inicio' %}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Contacto</a>
@@ -30,16 +42,16 @@
                     Productos
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Link 1</a></li>
-                    <li><a class="dropdown-item" href="#">Link 2</a></li>
-                    <li><a class="dropdown-item" href="#">Link 3</a></li>
+                    <li><a class="dropdown-item" href="{% url 'tienda' %}">Collares</a></li>
+                    <li><a class="dropdown-item" href="#">Pulseras</a></li>
+                    <li><a class="dropdown-item" href="#">Accesorio para Bodas</a></li>
                 </ul>
 
     </li>
     </ul>
         <form class="d-flex ms-auto me-2">
         <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
+        <button class="btn" type="button" style="background-color: #C0C5BC;">Search</button>
       </form>
     </div>
 </nav>

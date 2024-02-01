@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
-<body class="hold-transition layout-top-nav">
-
 {% extends 'encabezado.html' %}
 {% load static %}
 
 {% block content %}
-<div>
-    <img src="{% static 'lib/adminelt/img/matilde_front.png' %}" class="img-fluid" style="width: 100xp">
+<div class="navbar mt-5" data-aos="zoom-out-left" data-aos-duration="3000">
+    <ul class="list-unstyled">
+        <li>
+            <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo vertical (sin fondo).png' %}" class="img-fluid d-block mx-auto" style="width: 17%;">
+        </li>
+        <li class="d-flex justify-content-center align-items-center">
+            Detalles que cuentan historias
+        </li>
+    </ul>
+
+
 </div>
 
 
 
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 {% endblock %}
-</body>
+
 
 </html>

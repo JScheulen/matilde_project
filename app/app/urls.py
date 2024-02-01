@@ -21,8 +21,10 @@ from erp.views import Inicio
 
 from erp.vistas.category.views import tienda, homepage
 
+app_name = "gestion"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='inicio'),
     path('tienda/', tienda, name='tienda'),
+
 ]
