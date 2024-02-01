@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 
 {% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navegador Matilde</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'lib/adminelt/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'lib/adminelt/css/adminlte.min.css' %}">
+</head>
 
 
 <nav class=" navbar navbar-expand-md navbar-light navbar-white justify-content-center" >
@@ -9,6 +22,7 @@
         <span class="brand-text" style="font-size: 30px">Matilde Atelier</span>
   </a>
   </nav>
+
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
 
     <div class="container">
@@ -35,8 +49,8 @@
           </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Categoria</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow bg-navy " style='opacity: .9'>
-              <li><a href="#" class="dropdown-item text-end text-light">Pulseras </a></li>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style='opacity: .9'>
+              <li><a href="#" class="dropdown-item text-end text-dark">Pulseras </a></li>
               <li><a href="#" class="dropdown-item text-end text-light">Collares</a></li>
               <li><a href="#" class="dropdown-item text-end text-light">Anillos</a></li>
 
