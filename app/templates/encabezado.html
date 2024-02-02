@@ -3,10 +3,12 @@
 {% load static %}
 <head>
     <title>Matilde Tienda</title>
-    <link rel="shortcut icon" type="image/png" href="{% static 'lib/adminelt/img/Matilde Atelier_Logo horizontal secundario líneas negras (sin fondo).png' %}">
+    <link rel="shortcut icon" type="image/png"
+          href="{% static 'lib/adminelt/img/Matilde Atelier_Logo horizontal secundario líneas negras (sin fondo).png' %}">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link href="{% static 'lib/bootstrap-5.3.2-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'lib/adminelt//plugins/fontawesome-free/css/all.min.css' %}">
     <script src="{% static 'lib/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js' %}"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -23,10 +25,11 @@
 <body class="hold-transition layout-top-nav">
 
 
-<nav class="navbar navbar-expand-sm navbar-light fixed-top" data-aos="zoom-out-left" id="navbarCollapse" style="background-color: #E9CFD7;height: 80px;">
+<nav class="navbar navbar-expand-sm navbar-light fixed-top" data-aos="zoom-out-left" id="navbarCollapse"
+     style="background-color: #E9CFD7;height: 70px;">
     <a class="navbar-brand" href="#">
         <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo horizontal secundario líneas negras (sin fondo).png' %}"
-             alt="Logo" style="width:70px;" class="rounded-pill">
+             alt="Logo" style="width:90px;" class="rounded-pill">
         <span>Matilde Atelier</span>
     </a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -47,12 +50,19 @@
                     <li><a class="dropdown-item" href="#">Accesorio para Bodas</a></li>
                 </ul>
 
-    </li>
-    </ul>
-        <form class="d-flex ms-auto me-2">
+            </li>
+
+        </ul>
+        <!--form class="d-flex d-block mx-auto">
         <input class="form-control me-2" type="text" placeholder="Search">
         <button class="btn" type="button" style="background-color: #C0C5BC;">Search</button>
-      </form>
+      </form-->
+        <a type="button" class="nav-link d-flex d-block ms-auto me-5">
+            <i class="fa fa-shopping-bag" style="font-size: 25px">
+            </i>
+        </a>
+
+
     </div>
 </nav>
 
@@ -60,6 +70,10 @@
 
 
 {% endblock %}
-
+<script src="{% static 'lib/adminelt/plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'lib/adminelt/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'lib/adminelt/js/adminlte.min.js' %}"></script>
 </body>
 </html>
