@@ -7,12 +7,40 @@
 {% block content %}
 {% load static %}
 
-
-
+<div class="container-fluir mt-5">
+    <br><br>
+    <div class="row mt">
+        <div class="col-lg">
+            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px"></img>
+            <div class="box-element product"></div>
+            <h6><strong>Producto</strong></h6>
+            <hr>
+          <button class="btn btn-outline-secondary">Agregar a Carrito</button>
+          <a href="#" class="btn btn-outline-secondary">View</a>
+          <h4 style="display: inline-block; float: right">$20.000</h4>
+        </div>
+        <div class="col-lg">
+            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px"></img>
+            <h6><strong>Producto</strong></h6>
+            <hr>
+          <button class="btn btn-outline-secondary">Agregar a Carrito</button>
+          <a href="#" class="btn btn-outline-secondary">View</a>
+          <h4 style="display: inline-block; float: right">$20.000</h4>
+        </div>
+        <div class="col-lg">
+            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px"></img>
+            <h6 class=""><strong>Producto</strong></h6>
+            <hr>
+          <button class="btn btn-outline-secondary">Agregar a Carrito</button>
+          <a href="#" class="btn btn-outline-secondary">View</a>
+          <h4 style="display: inline-block; float: right">$20.000</h4>
+        </div>
+    </div>
+</div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
+    AOS.init();
 </script>
 {% endblock %}
 
