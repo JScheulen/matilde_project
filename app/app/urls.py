@@ -19,12 +19,14 @@ from django.urls import path
 
 from erp.views import Inicio
 
-from erp.vistas.category.views import tienda, homepage
+from erp.vistas.category.views import tienda, homepage, carrito, checkout
 
 app_name = "gestion"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='inicio'),
     path('tienda/', tienda, name='tienda'),
+    path('cart/', carrito, name='carro'),
+    path('checkout/', checkout, name='checkout')
 
 ]

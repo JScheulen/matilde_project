@@ -1,1 +1,62 @@
-<h3>Carrito</h3>
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'encabezado.html' %}
+
+{% block content %}
+{% load static %}
+<br>
+<br>
+<div class="container pt-3 mt-5 border shadow">
+    <div class="row">
+        <div class="col-lg">
+            <div class="box-element">
+                <a class="btn btn-outline-dark" href="{% url 'tienda' %}">&#x2190; Continua comprando</a>
+
+                <table class="table">
+                    <tr>
+                        <th><h5> Items: <strong>3</strong></h5></th>
+                        <th><h5> Total: <strong>$60.000</strong></h5></th>
+                        <th>
+                            <a style="float: right; margin: 5px" class="btn btn-success" href="{% url 'checkout' %}">
+                                Checkout </a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container pt-3 mt-5 border shadow">
+    <div class="row">
+        <div class="col-lg">
+            <div class="box-element">
+                <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid;">
+                    <div style="flex: 2"></div>
+                    <div style="flex: 2"><strong>Item</strong></div>
+                    <div style="flex: 1"><strong>Precio</strong></div>
+                    <div style="flex: 1"><strong>Cantidad</strong></div>
+                    <div style="flex: 1"><strong>Total</strong></div>
+                </div>
+                <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px">
+                    <div style="flex: 2"><img style="width: 100px" src= "{% static 'lib/adminelt/img/placeholder.png' %}" alt=""></div>
+                    <div style="flex: 2"><strong>item1</strong></div>
+                    <div style="flex: 1"><strong>50000</strong></div>
+                    <div style="flex: 1"><strong>5</strong></div>
+                    <div style="flex: 1"><strong>250000</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+{% endblock %}
+
+</html>
