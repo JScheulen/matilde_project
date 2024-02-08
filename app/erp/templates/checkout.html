@@ -1,1 +1,50 @@
-<h3>CheckOut</h3>
+{% extends 'encabezado.html' %}
+{% load static %}
+
+{% block content %}
+<br><br>
+<div class="container shadow mt-5 pt-4">
+    <div class="row">
+        <div class="col-lg">
+            <div class="box-element" id="box-wrapper">
+                <form>
+                    <div id="user-info">
+                        <div style="width: 250px; display: inline-block; padding 5px;"><input required class="form-control" type="text" name="nombre"
+                                                       placeholder="Nombre.."></div>
+                        <div style="width: 250px; display: inline-block; padding 5px;"><input required class="form-control" type="text" name="correo"
+                                                       placeholder="Correo.."></div>
+                    </div>
+                    <div id="shipping-info">
+                        <hr>
+                        <p>Informacion de Envío</p>
+                        <hr>
+                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="direccion"
+                                                       placeholder="Direccion.."></div>
+                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="ciudad"
+                                                       placeholder="Ciudad.."></div>
+                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="comuna"
+                                                       placeholder="Comuna.."></div>
+                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="codigopostal"
+                                                       placeholder="Codigo Postal.."></div>
+                    </div>
+                    <hr>
+                    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                    <br>
+                </form>
+            </div>
+            <div class=col-lg>
+                <br>
+                <div class="box-element">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+{% endblock %}
