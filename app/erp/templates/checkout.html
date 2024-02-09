@@ -3,45 +3,90 @@
 
 {% block content %}
 <br><br>
-<div class="container shadow mt-5 pt-4">
+<div class="container">
     <div class="row">
-        <div class="col-lg">
-            <div class="box-element" id="box-wrapper">
-                <form>
-                    <div id="user-info">
-                        <div style="width: 250px; display: inline-block; padding 5px;"><input required class="form-control" type="text" name="nombre"
-                                                       placeholder="Nombre.."></div>
-                        <div style="width: 250px; display: inline-block; padding 5px;"><input required class="form-control" type="text" name="correo"
-                                                       placeholder="Correo.."></div>
-                    </div>
-                    <div id="shipping-info">
-                        <hr>
-                        <p>Informacion de Envío</p>
-                        <hr>
-                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="direccion"
-                                                       placeholder="Direccion.."></div>
-                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="ciudad"
-                                                       placeholder="Ciudad.."></div>
-                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="comuna"
-                                                       placeholder="Comuna.."></div>
-                        <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control" type="text" name="codigopostal"
-                                                       placeholder="Codigo Postal.."></div>
-                    </div>
-                    <hr>
-                    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
-                    <br>
-                </form>
-            </div>
-            <div class=col-lg>
-                <br>
-                <div class="box-element">
 
+        <div class="col-lg">
+            <div class="container mt-5 shadow" style="padding-top: 20px;padding-bottom: 10px;">
+                <div id="box-wrapper">
+                    <form>
+                        <div id="user-info">
+                            <div style="width: 250px; display: inline-block; padding 5px;"><input required
+                                                                                                  class="form-control"
+                                                                                                  type="text"
+                                                                                                  name="nombre"
+                                                                                                  placeholder="Nombre..">
+                            </div>
+                            <div style="width: 250px; display: inline-block; padding 5px;"><input required
+                                                                                                  class="form-control"
+                                                                                                  type="text"
+                                                                                                  name="correo"
+                                                                                                  placeholder="Correo..">
+                            </div>
+                        </div>
+                        <div id="shipping-info">
+                            <hr>
+                            <p>Informacion de Envío</p>
+                            <hr>
+                            <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control"
+                                                                                                  type="text"
+                                                                                                  name="direccion"
+                                                                                                  placeholder="Direccion..">
+                            </div>
+                            <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control"
+                                                                                                  type="text"
+                                                                                                  name="ciudad"
+                                                                                                  placeholder="Ciudad..">
+                            </div>
+                            <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control"
+                                                                                                  type="text"
+                                                                                                  name="comuna"
+                                                                                                  placeholder="Comuna..">
+                            </div>
+                            <div style="width: 250px; display: inline-block; padding 5px;"><input class="form-control"
+                                                                                                  type="text"
+                                                                                                  name="codigopostal"
+                                                                                                  placeholder="Codigo Postal..">
+                            </div>
+                        </div>
+                        <hr>
+                        <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                        <br>
+                    </form>
                 </div>
             </div>
         </div>
 
+        <div class=col-lg>
+            <div class="container mt-5 shadow" style="padding-top: 20px;padding-bottom: 10px;">
+                <a href="{% url 'carro' %}" class="btn btn-outline-dark">Regresar al Carrito</a>
+                <hr>
+                <h4>Resumen de Pedido</h4>
+                <hr>
+                <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px">
+                    <div style="flex: 2"><img style="width: 100px" src="{% static 'lib/adminelt/img/placeholder.png' %}" alt=""></div>
+                    <div style="flex: 2">Producto 1</div>
+                    <div style="flex: 1">$20.000</div>
+                    <div style="flex: 1">x2</div>
+                </div>
+                <h5>Items: 2</h5>
+                <h5>Total: $40.000</h5>
+            </div>
+        </div>
+        <br>
+
+
     </div>
 </div>
+<br>
+<div class="container shadow ">
+    <div class="row">
+        <div id="payment-info" style="display: none!important;">
+            <small>Transferencia Bancaria</small>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
