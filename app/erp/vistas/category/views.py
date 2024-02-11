@@ -8,8 +8,9 @@ def homepage(request):
     return render(request, 'home.html')
 
 def tienda(request):
-    context = {}
-    return render(request, 'tienda.html')
+    products = Productos.objects.all()
+    context = {'producto': products}
+    return render(request, 'tienda.html', context)
 
 def carrito(request):
     context = {}

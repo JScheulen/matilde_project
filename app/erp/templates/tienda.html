@@ -10,31 +10,22 @@
 <div class="container mt-5">
     <br><br>
     <div class="row mt">
+        {% for pro in producto %}
         <div class="col-lg">
+            {% if pro.foto %}
+            <img class="thumbnail" src="{{pro.foto.url}}" style="width: 169px"></img>
+
+            {% else %}
             <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px"></img>
+            {% endif %}
             <div class="box-element product"></div>
-            <h6><strong>Producto</strong></h6>
+            <h6><strong>{{pro.nombre}}</strong></h6>
             <hr>
           <button class="btn btn-outline-secondary">Agregar a Carrito</button>
           <a href="#" class="btn btn-outline-secondary">View</a>
-          <h4 style="display: inline-block; float: right">$20.000</h4>
+          <h5 style="display: inline-block; float: right">${{pro.precio|floatformat:1}}</h5>
         </div>
-        <div class="col-lg">
-            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px"></img>
-            <h6><strong>Producto</strong></h6>
-            <hr>
-          <button class="btn btn-outline-secondary">Agregar a Carrito</button>
-          <a href="#" class="btn btn-outline-secondary">View</a>
-          <h4 style="display: inline-block; float: right">$20.000</h4>
-        </div>
-        <div class="col-lg">
-            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px"></img>
-            <h6 class=""><strong>Producto</strong></h6>
-            <hr>
-          <button class="btn btn-outline-secondary">Agregar a Carrito</button>
-          <a href="#" class="btn btn-outline-secondary">View</a>
-          <h4 style="display: inline-block; float: right">$20.000</h4>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
