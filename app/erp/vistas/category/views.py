@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 
-from erp.models import Productos
+from erp.models import Productos, Order
 
 
 def homepage(request):
@@ -13,8 +13,15 @@ def tienda(request):
     return render(request, 'tienda.html', context)
 
 def carrito(request):
-    context = {}
-    return render(request, 'carro.html')
+    if request.user.is_authenticated:
+        customer = request.user.costumer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+
+    context = {'items': items, 'order': order}
+    return render(request, 'carro.html', context)
 
 def checkout(request):
     context = {}

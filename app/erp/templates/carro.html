@@ -15,8 +15,8 @@
 
                 <table class="table">
                     <tr>
-                        <th><h5> Items: <strong>3</strong></h5></th>
-                        <th><h5> Total: <strong>$60.000</strong></h5></th>
+                        <th><h5> Items: <strong>{{order.get_cart_items}}</strong></h5></th>
+                        <th><h5> Total: <strong>${{order.get_cart_total}}</strong></h5></th>
                         <th>
                             <a style="float: right; margin: 5px" class="btn btn-success" href="{% url 'checkout' %}">
                                 Checkout </a>
@@ -40,20 +40,22 @@
                     <div style="flex: 1"><strong>Cantidad</strong></div>
                     <div style="flex: 1"><strong>Total</strong></div>
                 </div>
+                {% for item in items %}
                 <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px">
                     <div style="flex: 2"><img style="width: 100px" src= "{% static 'lib/adminelt/img/placeholder.png' %}" alt=""></div>
-                    <div style="flex: 2"><strong>item1</strong></div>
-                    <div style="flex: 1"><strong>50000</strong></div>
+                    <div style="flex: 2"><strong>{{item.product.nombre}}</strong></div>
+                    <div style="flex: 1"><strong>{{item.product.precio|floatformat:1}}</strong></div>
                     <div style="flex: 1;">
-                        <p style="display: inline-block; font-weight: 700; padding-right: 10px;">5</p>
+                        <p style="display: inline-block; font-weight: 700; padding-right: 10px;">{{item.quantity}}</p>
                         <div style="display: inline-block; font-weight: 700; padding-right: 10px;">
                             <i class='fas fa-angle-up' style="width: 12px; cursor: pointer; display: block"></i>
                             <i class='fas fa-angle-down' style="width: 12px; cursor: pointer; display: block"></i>
 
                         </div>
                     </div>
-                    <div style="flex: 1"><strong>250000</strong></div>
+                    <div style="flex: 1"><strong>{{item.get_total|floatformat:1}}</strong></div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
