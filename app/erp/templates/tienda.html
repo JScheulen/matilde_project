@@ -6,17 +6,17 @@
 
 {% block content %}
 {% load static %}
+<br><br><br>
+<div class="container mt-5 shadow">
 
-<div class="container mt-5">
-    <br><br>
     <div class="row mt">
         {% for pro in producto %}
-        <div class="col-lg">
+        <div class="col-lg" style="padding-top: 10px;padding-bottom: 10px;">
             {% if pro.foto %}
-            <img class="thumbnail" src="{{pro.foto.url}}" style="width: 169px"></img>
+            <img class="thumbnail" src="{{pro.foto.url}}" style="width: 169px">
 
             {% else %}
-            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px"></img>
+            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px">
             {% endif %}
             <div class="box-element product"></div>
             <h6><strong>{{pro.nombre}}</strong></h6>

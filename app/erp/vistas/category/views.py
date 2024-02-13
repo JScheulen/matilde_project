@@ -19,13 +19,22 @@ def carrito(request):
         items = order.orderitem_set.all()
     else:
         items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
 
     context = {'items': items, 'order': order}
     return render(request, 'carro.html', context)
 
 def checkout(request):
-    context = {}
-    return render(request, 'checkout.html')
+    if request.user.is_authenticated:
+        customer = request.user.costumer
+        order, created = Order.objects.get_or_create(customer=customer, complete = False)
+        items = order.orderitem_set.all()
+    else:
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        items = []
+
+    context = {'items': items, 'order': order}
+    return render(request, 'checkout.html', context)
 
 
 
