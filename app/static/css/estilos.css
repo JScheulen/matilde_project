@@ -1,0 +1,11 @@
+.contenedor-box{
+    width: 250px;
+    display: inline-block;
+    padding 5px;
+}
+.alinear{
+    display: flex;
+    align-items: flex-stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}

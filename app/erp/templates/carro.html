@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col-lg">
             <div class="box-element">
-                <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid;">
+                <div class="alinear" style="border-bottom: 1px solid;">
                     <div style="flex: 2"></div>
                     <div style="flex: 2"><strong>Item</strong></div>
                     <div style="flex: 1"><strong>Precio</strong></div>
@@ -41,7 +41,7 @@
                     <div style="flex: 1"><strong>Total</strong></div>
                 </div>
                 {% for item in items %}
-                <div style="display: flex; align-items: flex-stretch; padding-bottom: 10px; margin-bottom: 10px">
+                <div class="alinear">
                     <div style="flex: 2">
                         {% if item.product.foto %}
                         <img style="width: 100px" src= "{{item.product.foto.url}}" alt="">
@@ -51,7 +51,7 @@
                     </div>
                     <div style="flex: 2"><strong>{{item.product.nombre}}</strong></div>
                     <div style="flex: 1"><strong>{{item.product.precio|floatformat:1}}</strong></div>
-                    <div style="flex: 1;">
+                    <div style="flex: 1; display: flex; aling-items: center;">
                         <p style="display: inline-block; font-weight: 700; padding-right: 10px;">{{item.quantity}}</p>
                         <div style="display: inline-block; font-weight: 700; padding-right: 10px;">
                             <i class='fas fa-angle-up' style="width: 12px; cursor: pointer; display: block"></i>
