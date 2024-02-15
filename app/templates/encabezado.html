@@ -12,16 +12,26 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <script src="{% static 'lib/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js' %}"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!--style>
-        body{
-            background-image: url("{% static 'lib/adminelt/img/Matilde Atelier_Papel para envolver (diseño).jpg' %}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
         }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+    </script>
 
-    </style-->
 </head>
 <body class="hold-transition layout-top-nav">
 

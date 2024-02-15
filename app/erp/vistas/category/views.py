@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
-
+from django.http import JsonResponse
 from erp.models import Productos, Order
 
 
@@ -36,5 +36,6 @@ def checkout(request):
     context = {'items': items, 'order': order}
     return render(request, 'checkout.html', context)
 
-
+def updateItem(request):
+    return JsonResponse('Item was Added', safe=False)
 
