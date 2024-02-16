@@ -36,6 +36,6 @@ def checkout(request):
     context = {'items': items, 'order': order}
     return render(request, 'checkout.html', context)
 
-def updateItem(request):
-    return JsonResponse('Item was Added', safe=False)
+#def updateItem(request):
+    #return JsonResponse('Item was Added', safe=False)
 

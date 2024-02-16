@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from erp.vistas.category.views import tienda, homepage, carrito, checkout, updateItem
+from erp.vistas.category.views import tienda, homepage, carrito, checkout #updateItem
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -29,7 +29,7 @@ urlpatterns = [
     path('tienda/', tienda, name='tienda'),
     path('cart/', carrito, name='carro'),
     path('checkout/', checkout, name='checkout'),
-    path('update_item/', updateItem, name='update_item')
+    #path('update_item/', updateItem, name='update_item')
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
