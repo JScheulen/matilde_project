@@ -3,6 +3,8 @@
 {% load static %}
 <head>
     <title>Matilde Tienda</title>
+
+
     <link rel="shortcut icon" type="image/png"
           href="{% static 'lib/adminelt/img/Matilde Atelier_Logo horizontal secundario líneas negras (sin fondo).png' %}">
     <meta charset="utf-8">
@@ -12,9 +14,24 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <script src="{% static 'lib/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js' %}"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-
-
+<script>
+     function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getToken('csrftoken');
+</script>
 
 </head>
 <body class="hold-transition layout-top-nav">
@@ -52,9 +69,11 @@
         <input class="form-control me-2" type="text" placeholder="Search">
         <button class="btn" type="button" style="background-color: #C0C5BC;">Search</button>
       </form-->
-        <a type="button" href="{% url 'carro' %}" class="nav-link d-flex d-block ms-auto me-5">
+
+        <a type="button" href="{% url 'carro' %}"  class="nav-link d-flex d-block ms-auto me-5">
             <i class="fa fa-shopping-bag" style="font-size: 25px">
             </i>
+            <p class="badge text-bg-danger text-dark navbar-badge">{{order.get_cart_items}}</p>
         </a>
 
 
@@ -70,6 +89,8 @@
 <script src="{% static 'lib/adminelt/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static 'lib/adminelt/js/adminlte.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/nuevo.js' %}"></script>
+
+
 </body>
 </html>

@@ -38,7 +38,7 @@
         </div>
 
         <div class=col-lg>
-            <div class="container mt-5 shadow" style="padding-top: 20px;padding-bottom: 10px;">
+            <div class="container mt-5 shadow " style="padding-top: 20px;padding-bottom: 10px;">
                 <a href="{% url 'carro' %}" class="btn btn-outline-dark">Regresar al Carrito</a>
                 <hr>
                 <h4>Resumen de Pedido</h4>
@@ -67,10 +67,11 @@
     </div>
 </div>
 <br>
-<div class="container shadow ">
-    <div class="row">
-        <div id="payment-info" style="display: none!important;">
-            <small>Transferencia Bancaria</small>
+<div class="container shadow ocultar" >
+    <div class="row" >
+        <div id="payment-info" >
+            <small>Opciones de Pago</small>
+            <button id="make-payment">Realizar Pago</button>
         </div>
     </div>
 </div>
