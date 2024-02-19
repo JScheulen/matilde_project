@@ -39,6 +39,12 @@ class Order(models.Model):
         total = sum(item.quantity for item in orderitems)
         return total
 
+    @property
+    def shipping(self):
+        shipping = False
+
+        return shipping
+
     def __str__(self):
         return str(self.transaction_id)
 
@@ -66,4 +72,5 @@ class ShippingAdress(models.Model):
 
     def __str__(self):
         return self.address
+
 

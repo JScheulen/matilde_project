@@ -25,7 +25,7 @@ def carrito(request):
         items = order.orderitem_set.all()
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
 
     context = {'items': items, 'order': order}
     return render(request, 'carro.html', context)
@@ -37,7 +37,7 @@ def checkout(request):
         items = order.orderitem_set.all()
 
     else:
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         items = []
 
 
@@ -49,7 +49,7 @@ def updateItem(request):
     data = json.loads(request.body)
     productId = data['productName']
     action = data['action']
-    print(f'{productId} y {action}')
+
 
     customer = request.user.costumer
     product = Productos.objects.get(codigo=productId)
@@ -79,7 +79,7 @@ def encabezado(request):
         cuenta = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cuenta = order['get_cart_items']
 
     context = {'items': items, 'order': order, 'cuenta': cuenta}
