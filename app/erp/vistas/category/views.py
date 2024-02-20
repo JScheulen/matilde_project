@@ -6,14 +6,25 @@ import json
 
 
 def homepage(request):
-    customer = request.user.costumer
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    if request.user.is_authenticated:
+        customer = request.user.costumer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+
+    else:
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+
     context = {'order': order}
+
     return render(request, 'home.html', context)
 
 def tienda(request):
-    customer = request.user.costumer
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    if request.user.is_authenticated:
+        customer = request.user.costumer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+
+    else:
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+
     products = Productos.objects.all()
     context = {'producto': products, 'order': order}
     return render(request, 'tienda.html', context)
