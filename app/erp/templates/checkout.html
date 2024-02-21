@@ -100,6 +100,7 @@
 
 <script>
     var shipping = '{{order.shipping}}';
+    var total = '{{order.get_cart_total|floatformat:2}}';
 
     function handleCheckboxChange(checkboxId) {
         if (checkboxId === 'flexRadioDefault1') {
@@ -123,6 +124,37 @@
 
     function bottomClicked() {
         console.log('El Boton se Clickeo')
+
+        var userFormdata = {
+            'nombre': null,
+            'correo': null,
+            'total': total,
+        };
+
+        var shippingInfo = {
+            'direccion': null,
+            'ciudad': null,
+            'comuna': null,
+            'codigopostal': null,
+        };
+
+        shippingInfo.direccion = form.direccion.value
+        shippingInfo.ciudad = form.ciudad.value
+        shippingInfo.comuna = form.comuna.value
+        shippingInfo.codigopostal = form.codigopostal.value
+
+        if ('{{user}}' == "AnonymousUser"){
+            userFormdata.nombre = form.nombre.value
+            userFormdata.correo = form.correo.value
+        }else {
+            userFormdata.nombre = '{{user}}'
+            userFormdata.correo = '{{user.email}}'
+        }
+
+
+        console.log('shippingInfo:', shippingInfo)
+        console.log('userFormdata:', userFormdata)
+
     }
 
 </script>
