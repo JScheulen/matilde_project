@@ -151,9 +151,33 @@
             userFormdata.correo = '{{user.email}}'
         }
 
+        fetch('/process_order/', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify({'form': userFormdata, 'shipping':shippingInfo})
 
-        console.log('shippingInfo:', shippingInfo)
-        console.log('userFormdata:', userFormdata)
+        }
+        )
+        .then(response => {
+        // Verificar si la solicitud fue exitosa (código 200)
+            if (!response.ok) {
+                throw new Error('Hubo un problema al realizar la solicitud: ' + response.status);
+            }
+            // Si la solicitud fue exitosa, convertir la respuesta a JSON
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            alert('Transaccion Completada')
+            window.location.href = "{% url 'inicio' %}"
+        })
+        .catch(error => {
+        // Capturar cualquier error que haya ocurrido durante la solicitud
+            console.error('Error:', error);
+        });
 
     }
 

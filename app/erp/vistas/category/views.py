@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.http import JsonResponse
-from erp.models import Productos, Order, OrderItem
+from erp.models import Productos, Order, OrderItem, ShippingAdress
 import json
+import datetime
 
 
 def homepage(request):
@@ -96,3 +97,33 @@ def encabezado(request):
     context = {'items': items, 'order': order, 'cuenta': cuenta}
 
     return render(request, context)
+
+def processOrder(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
+    if request.user.is_authenticated:
+        customer = request.user.costumer
+        order, create = Order.objects.get_or_create(customer=customer, complete=False)
+        total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+
+        if total == order.get_cart_total:
+            order.complete = True
+        order.save()
+
+        if order.shipping == True:
+            ShippingAdress.objects.create(
+                customer=customer,
+                order=order,
+                address=data['shipping']['direccion'],
+                ciudad=data['shipping']['ciudad'],
+                codigo_postal=data['shipping']['codigopostal']
+
+            )
+
+    else:
+        print('user is not logged in')
+
+    return JsonResponse('Payment Complete', safe=False)
+
