@@ -29,8 +29,9 @@ urlpatterns = [
     path('tienda/', tienda, name='tienda'),
     path('cart/', carrito, name='carro'),
     path('checkout/', checkout, name='checkout'),
+    #Processos de Request Post
     path('update_item/', updateItem, name='update_item'),
-    path('process_order/', processOrder, name='process_order')
+    path('process_order/', processOrder, name='process_order'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

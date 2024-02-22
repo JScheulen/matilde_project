@@ -112,8 +112,11 @@ def processOrder(request):
             order.complete = True
         order.save()
 
-        if order.shipping == True:
-            ShippingAdress.objects.create(
+        shipping = data['proceso']
+
+
+        if shipping == 'True':
+            ShippingAdress.objects.get_or_create(
                 customer=customer,
                 order=order,
                 address=data['shipping']['direccion'],
@@ -126,4 +129,5 @@ def processOrder(request):
         print('user is not logged in')
 
     return JsonResponse('Payment Complete', safe=False)
+
 

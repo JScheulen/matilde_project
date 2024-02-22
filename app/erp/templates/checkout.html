@@ -101,14 +101,22 @@
 <script>
     var shipping = '{{order.shipping}}';
     var total = '{{order.get_cart_total|floatformat:2}}';
+    var status = 'False'
+
+    if (document.getElementById('flexRadioDefault1').checked) {
+        shipping = 'True'
+    }
 
     function handleCheckboxChange(checkboxId) {
         if (checkboxId === 'flexRadioDefault1') {
-            shipping = 'True';
+            shipping == 'True';
             document.getElementById('shipping-info').classList.remove('ocultar');
+
+
         } else if (checkboxId === 'flexRadioDefault2') {
             shipping = 'False';
             document.getElementById('shipping-info').classList.add('ocultar');
+
         }
 
     }
@@ -157,7 +165,7 @@
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
             },
-            body: JSON.stringify({'form': userFormdata, 'shipping':shippingInfo})
+            body: JSON.stringify({'form': userFormdata, 'shipping':shippingInfo, 'proceso': shipping})
 
         }
         )
