@@ -12,11 +12,34 @@ function getNumber(userName) {
     console.log(userName)
 
     if (userName ==="AnonymousUser") {
-        console.log('User not Logged')
+        addCookieItem(productName, action)
     } else {
         updateOrder(productName, action)
     }
 }
+
+function addCookieItem(productName, action){
+    console.log('User not Logged!!!')
+
+    if(action =='add'){
+        if(cart[productName] == undefined){
+            cart[productName] = {'quantity': 1}
+        }else {
+            cart[productName]['quantity'] += 1
+        };
+        if(action =='remove'){
+            cart[productName]['quantity'] -= 1
+            if(cart[productName]['quantity'] <= 0){
+                console.log('remove item')
+                delete cart[productName]
+            }
+        };
+    }
+    document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/";
+    location.reload()
+}
+
+
 
 function updateOrder(productName, action) {
       fetch('/update_item/', {

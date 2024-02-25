@@ -32,6 +32,29 @@
         return cookieValue;
     }
     const csrftoken = getToken('csrftoken');
+
+    function getCookie(name) {
+        var cookieArr = document.cookie.split(";");
+
+        for (var i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+
+            if(name == cookiePair[0].trim()){
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+    return null;
+
+    }
+    var cart = JSON.parse(getCookie('cart'))
+
+    if(cart == undefined) {
+        cart = {}
+        console.log('cart was created')
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/";
+    }
+
+    console.log('Cart: ', cart)
 </script>
 
 </head>
@@ -74,7 +97,7 @@
         <a type="button" href="{% url 'carro' %}"  class="nav-link d-flex d-block ms-auto me-5">
             <i class="fa fa-shopping-bag" style="font-size: 25px">
             </i>
-            <p class="badge text-bg-danger text-dark navbar-badge">{{order.get_cart_items}}</p>
+            <p class="badge text-bg-danger text-dark navbar-badge">{{itemsList}}</p>
         </a>
 
 
