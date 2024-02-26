@@ -2,73 +2,46 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from erp.models import Productos, Order, OrderItem, ShippingAdress
+from erp.utils import cookieCart, cartData
 import json
 import datetime
 
 
 def homepage(request):
-    if request.user.is_authenticated:
-        customer = request.user.costumer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    cookieData = cartData(request)
+    order = cookieData['order']
+    itemsList = cookieData['itemsList']
 
-    else:
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
-
-    context = {'order': order}
+    context = {'order': order, 'itemsList': itemsList}
 
     return render(request, 'home.html', context)
 
 def tienda(request):
-    if request.user.is_authenticated:
-        customer = request.user.costumer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-
-    else:
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+    cookieData = cartData(request)
+    order = cookieData['order']
+    itemsList = cookieData['itemsList']
 
     products = Productos.objects.all()
-    context = {'producto': products, 'order': order}
+    context = {'producto': products, 'order': order, 'itemsList': itemsList}
     return render(request, 'tienda.html', context)
 
 def carrito(request):
-    if request.user.is_authenticated:
-        customer = request.user.costumer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        itemsList = order.get_cart_items
-    else:
-        try:
-            cart = json.loads(request.COOKIES['cart'])
-        except:
-            cart = {}
-
-        items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
-        itemsList = order['get_cart_items']
-
-        for i in cart:
-            itemsList += cart[i]["quantity"]
-            product = Productos.objects.get(codigo=i)
-            total = (float(product.precio) * float(cart[i]["quantity"]))
-
-            order['get_cart_total'] += total
-            order['get_cart_items'] += cart[i]["quantity"]
+    cookieData = cartData(request)
+    items = cookieData['items']
+    order = cookieData['order']
+    itemsList = cookieData['itemsList']
 
     context = {'items': items, 'order': order, 'itemsList': itemsList}
     return render(request, 'carro.html', context)
 
 def checkout(request):
-    if request.user.is_authenticated:
-        customer = request.user.costumer
-        order, created = Order.objects.get_or_create(customer=customer, complete = False)
-        items = order.orderitem_set.all()
-
-    else:
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
-        items = []
+    cookieData = cartData(request)
+    items = cookieData['items']
+    order = cookieData['order']
+    itemsList = cookieData['itemsList']
 
 
-    context = {'items': items, 'order': order}
+    context = {'items': items, 'order': order, 'itemsList': itemsList}
 
     return render(request, 'checkout.html', context)
 
@@ -108,6 +81,7 @@ def encabezado(request):
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cuenta = order['get_cart_items']
+
 
     context = {'items': items, 'order': order, 'cuenta': cuenta}
 
