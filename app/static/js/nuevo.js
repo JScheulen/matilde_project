@@ -19,22 +19,24 @@ function getNumber(userName) {
 }
 
 function addCookieItem(productName, action){
-    console.log('User not Logged!!!')
+    //console.log('User not Logged!!!')
 
     if(action =='add'){
         if(cart[productName] == undefined){
             cart[productName] = {'quantity': 1}
         }else {
             cart[productName]['quantity'] += 1
-        };
-        if(action =='remove'){
-            cart[productName]['quantity'] -= 1
-            if(cart[productName]['quantity'] <= 0){
-                console.log('remove item')
-                delete cart[productName]
-            }
-        };
-    }
+            console.log('se agrego!')
+        }
+    };
+    if(action =='remove'){
+        cart[productName]['quantity'] -= 1
+        if(cart[productName]['quantity'] <= 0){
+            console.log('remove item')
+            delete cart[productName]
+        }
+    };
+
     document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/";
     location.reload()
 }
