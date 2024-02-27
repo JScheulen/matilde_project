@@ -180,6 +180,9 @@
         .then(data => {
             console.log(data);
             alert('Transaccion Completada')
+            cart = {}
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+
             window.location.href = "{% url 'inicio' %}"
         })
         .catch(error => {

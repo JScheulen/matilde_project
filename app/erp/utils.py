@@ -1,4 +1,4 @@
-from .models import Productos, Order, OrderItem, ShippingAdress
+from .models import Productos, Order, OrderItem, ShippingAdress, Costumer
 import json
 
 
@@ -25,7 +25,7 @@ def cookieCart(request):
                     'codigo': product.codigo,
                     'nombre': product.nombre,
                     'precio': product.precio,
-                    'imagen': product.foto
+                    'foto': product.foto
                 },
                 'quantity': cart[i]['quantity'],
                 'get_total': total
@@ -35,6 +35,7 @@ def cookieCart(request):
     except:
         pass
     return {'items': items, 'order': order, 'itemsList': itemsList}
+
 
 def cartData(request):
     if request.user.is_authenticated:
@@ -49,3 +50,25 @@ def cartData(request):
         itemsList = cookie_data['itemsList']
 
     return {'items': items, 'order': order, 'itemsList': itemsList}
+
+
+def gestOrder(request, data):
+    name = data['form']['nombre']
+    correo = data['form']['correo']
+    print(name)
+    cookieData = cookieCart(request)
+    items = cookieData['items']
+    customer, created = Costumer.objects.get_or_create(
+        email=correo,
+    )
+    customer.name = name
+    customer.save()
+    order = Order.objects.create(customer=customer, complete=False, )
+
+    for item in items:
+
+        product = Productos.objects.get(codigo=item['product']['codigo'])
+
+        orderitem = OrderItem.objects.create(product=product, order=order, quantity=item['quantity'])
+
+    return customer, order

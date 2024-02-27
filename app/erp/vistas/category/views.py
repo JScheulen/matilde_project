@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.http import JsonResponse
-from erp.models import Productos, Order, OrderItem, ShippingAdress
-from erp.utils import cookieCart, cartData
+from erp.models import Productos, Order, OrderItem, ShippingAdress, Costumer
+from erp.utils import cookieCart, cartData, gestOrder
 import json
 import datetime
 
@@ -16,6 +16,7 @@ def homepage(request):
 
     return render(request, 'home.html', context)
 
+
 def tienda(request):
     cookieData = cartData(request)
     order = cookieData['order']
@@ -24,6 +25,7 @@ def tienda(request):
     products = Productos.objects.all()
     context = {'producto': products, 'order': order, 'itemsList': itemsList}
     return render(request, 'tienda.html', context)
+
 
 def carrito(request):
     cookieData = cartData(request)
@@ -34,22 +36,22 @@ def carrito(request):
     context = {'items': items, 'order': order, 'itemsList': itemsList}
     return render(request, 'carro.html', context)
 
+
 def checkout(request):
     cookieData = cartData(request)
     items = cookieData['items']
     order = cookieData['order']
     itemsList = cookieData['itemsList']
 
-
     context = {'items': items, 'order': order, 'itemsList': itemsList}
 
     return render(request, 'checkout.html', context)
+
 
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productName']
     action = data['action']
-
 
     customer = request.user.costumer
     product = Productos.objects.get(codigo=productId)
@@ -71,6 +73,7 @@ def updateItem(request):
 
     return JsonResponse('Item was Added', safe=False)
 
+
 def encabezado(request):
     if request.user.is_authenticated:
         customer = request.user.costumer
@@ -82,10 +85,10 @@ def encabezado(request):
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cuenta = order['get_cart_items']
 
-
     context = {'items': items, 'order': order, 'cuenta': cuenta}
 
     return render(request, context)
+
 
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
@@ -94,29 +97,32 @@ def processOrder(request):
     if request.user.is_authenticated:
         customer = request.user.costumer
         order, create = Order.objects.get_or_create(customer=customer, complete=False)
-        total = float(data['form']['total'])
-        order.transaction_id = transaction_id
-
-        if total == order.get_cart_total:
-            order.complete = True
-        order.save()
-
-        shipping = data['proceso']
 
 
-        if shipping == 'True':
-            ShippingAdress.objects.get_or_create(
-                customer=customer,
-                order=order,
-                address=data['shipping']['direccion'],
-                ciudad=data['shipping']['ciudad'],
-                codigo_postal=data['shipping']['codigopostal']
 
-            )
+
+
 
     else:
         print('user is not logged in')
+        customer, order = gestOrder(request,data)
+
+
+    total = float(data['form']['total'])
+    order.transaction_id = transaction_id
+
+    if total == order.get_cart_total:
+        order.complete = True
+    order.save()
+    shipping = data['proceso']
+    if shipping == 'True':
+        ShippingAdress.objects.get_or_create(
+            customer=customer,
+            order=order,
+            address=data['shipping']['direccion'],
+            ciudad=data['shipping']['ciudad'],
+            codigo_postal=data['shipping']['codigopostal']
+
+        )
 
     return JsonResponse('Payment Complete', safe=False)
-
-
