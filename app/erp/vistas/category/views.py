@@ -10,9 +10,10 @@ import datetime
 def homepage(request):
     cookieData = cartData(request)
     order = cookieData['order']
+    items = cookieData['items']
     itemsList = cookieData['itemsList']
 
-    context = {'order': order, 'itemsList': itemsList}
+    context = {'items': items,'order': order, 'itemsList': itemsList}
 
     return render(request, 'home.html', context)
 
@@ -20,10 +21,11 @@ def homepage(request):
 def tienda(request):
     cookieData = cartData(request)
     order = cookieData['order']
+    items = cookieData['items']
     itemsList = cookieData['itemsList']
 
     products = Productos.objects.all()
-    context = {'producto': products, 'order': order, 'itemsList': itemsList}
+    context = {'producto': products, 'order': order, 'itemsList': itemsList, 'items': items}
     return render(request, 'tienda.html', context)
 
 
@@ -97,10 +99,6 @@ def processOrder(request):
     if request.user.is_authenticated:
         customer = request.user.costumer
         order, create = Order.objects.get_or_create(customer=customer, complete=False)
-
-
-
-
 
 
     else:
