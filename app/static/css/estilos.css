@@ -11,5 +11,12 @@
 .ocultar{
     display: none!important;
 }
+.tienda{
+    padding-top: 10px;
+    padding-bottom: 10px
 
+}
+.gris {
+  color: #6c757d  !important;
+}
 

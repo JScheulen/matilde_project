@@ -12,8 +12,8 @@ def homepage(request):
     order = cookieData['order']
     items = cookieData['items']
     itemsList = cookieData['itemsList']
-
-    context = {'items': items,'order': order, 'itemsList': itemsList}
+    products = Productos.objects.all()
+    context = {'items': items,'order': order, 'itemsList': itemsList, 'producto': products}
 
     return render(request, 'home.html', context)
 

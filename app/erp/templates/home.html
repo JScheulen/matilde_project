@@ -8,23 +8,45 @@
 <div class="navbar mt-5" data-aos="zoom-out-up" data-aos-duration="3000">
     <ul class="list-unstyled">
         <li>
-            <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo vertical (sin fondo).png' %}" class="img-fluid d-block mx-auto" style="width: 17%;">
+            <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo vertical (sin fondo).png' %}"
+                 class="img-fluid d-block mx-auto" style="width: 17%;">
         </li>
         <li class="d-flex justify-content-center align-items-center" style="color:#D9AAB8;">
             Detalles que cuentan historias
         </li>
     </ul>
 </div>
-<div class="container">
-    Aca va a comenzar el listado de insumos de compras
+<div class="container mt-5 shadow">
+    <div class="tienda"><h1 style="color: #D9AAB8;">Encuentra tu Estilo Aqui</h1></div>
+    <hr>
+
+    <div class="row mt">
+        {% for pro in producto %}
+        <div class="col-lg tienda">
+            {% if pro.foto %}
+            <img src="{{pro.foto.url}}" class="thumbnail" style="width: 169px;">
+            {% else %}
+            <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px">
+            {% endif %}
+            <div class="box-element product"></div>
+            <h6><strong style="color: #D9AAB8;">{{pro.nombre}}</strong></h6>
+            <hr>
+            <button data-product="{{pro.codigo}}" data-action="add" class="btn btn-outline-secondary update-cart"
+                    onclick="getNumber('{{ user }}')">Agregar a Carrito
+            </button>
+            <a href="#" class="btn btn-outline-secondary">View</a>
+            <h5 class="gris" style="display: inline-block; float: right">${{pro.precio|floatformat:1}}</h5>
+        </div>
+        {% endfor %}
+    </div>
+
+
 </div>
-
-
 
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
+    AOS.init();
 </script>
 {% endblock %}
 

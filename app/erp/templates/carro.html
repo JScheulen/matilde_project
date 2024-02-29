@@ -15,8 +15,8 @@
 
                 <table class="table">
                     <tr>
-                        <th><h5> Items: <strong>{{order.get_cart_items}}</strong></h5></th>
-                        <th><h5> Total: <strong>${{order.get_cart_total}}</strong></h5></th>
+                        <th><h5 class="gris"> Items: <strong>{{order.get_cart_items}}</strong></h5></th>
+                        <th><h5 class="gris"> Total: <strong>${{order.get_cart_total}}</strong></h5></th>
                         <th>
                             <a style="float: right; margin: 5px" class="btn btn-success" href="{% url 'checkout' %}">
                                 Checkout </a>
@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col-lg">
             <div class="box-element">
-                <div class="alinear" style="border-bottom: 1px solid;">
+                <div class="alinear gris" style="border-bottom: 1px solid;">
                     <div style="flex: 2"></div>
                     <div style="flex: 2"><strong>Item</strong></div>
                     <div style="flex: 1"><strong>Precio</strong></div>
@@ -49,17 +49,17 @@
                         <img style="width: 100px" src= "{% static 'lib/adminelt/img/placeholder.png' %}" alt="">
                         {% endif %}
                     </div>
-                    <div style="flex: 2"><strong>{{item.product.nombre}}</strong></div>
-                    <div style="flex: 1"><strong>{{item.product.precio|floatformat:1}}</strong></div>
+                    <div style="flex: 2; color: #D9AAB8;"><strong>{{item.product.nombre}}</strong></div>
+                    <div class="gris" style="flex: 1"><strong>{{item.product.precio|floatformat:1}}</strong></div>
                     <div style="flex: 1; display: flex; aling-items: center;">
-                        <p style="display: inline-block; font-weight: 700; padding-right: 10px;">{{item.quantity}}</p>
+                        <p class="gris" style="display: inline-block; font-weight: 700; padding-right: 10px;">{{item.quantity}}</p>
                         <div style="display: inline-block; font-weight: 700; padding-right: 10px;">
-                            <i data-product="{{item.product.codigo}}" data-action="add" onclick="getNumber('{{user}}')" class='fas fa-angle-up' style="width: 12px; cursor: pointer; display: block"></i>
-                            <i data-product="{{item.product.codigo}}" data-action="remove" onclick="getNumber('{{user}}')" class='fas fa-angle-down' style="width: 12px; cursor: pointer; display: block"></i>
+                            <i data-product="{{item.product.codigo}}" data-action="add" onclick="getNumber('{{user}}')" class='fas fa-angle-up gris' style="width: 12px; cursor: pointer; display: block"></i>
+                            <i data-product="{{item.product.codigo}}" data-action="remove" onclick="getNumber('{{user}}')" class='fas fa-angle-down gris' style="width: 12px; cursor: pointer; display: block"></i>
 
                         </div>
                     </div>
-                    <div style="flex: 1"><strong>{{item.get_total|floatformat:1}}</strong></div>
+                    <div class="gris" style="flex: 1"><strong>{{item.get_total|floatformat:1}}</strong></div>
                 </div>
                 {% endfor %}
             </div>
