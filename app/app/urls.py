@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from erp.vistas.category.views import tienda, homepage, carrito, checkout, updateItem, processOrder
+from erp.vistas.category.views import tienda, homepage, carrito, checkout, updateItem, processOrder, vista_Item
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -32,6 +32,7 @@ urlpatterns = [
     #Processos de Request Post
     path('update_item/', updateItem, name='update_item'),
     path('process_order/', processOrder, name='process_order'),
+    path('tienda/<str:codigo>/', vista_Item, name='vistas')
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -19,7 +19,6 @@ function getNumber(userName) {
 }
 
 function addCookieItem(productName, action){
-    //console.log('User not Logged!!!')
 
     if(action =='add'){
         if(cart[productName] == undefined){
@@ -63,11 +62,10 @@ function updateOrder(productName, action) {
     .then(data => {
         // Manipular los datos recibidos
         console.log(data);
-        location.reload()
+        //location.reload()
     })
     .catch(error => {
         // Capturar cualquier error que haya ocurrido durante la solicitud
         console.error('Error:', error);
     });
 }
-

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'encabezado.html' %}
+
+{% block content %}
+{% load static %}
+<br><br><br>
+<div class="container-fluid mt-5">
+    <div>
+        {% if producto.foto %}
+        <img src="{{producto.foto}}" class="thumbnail">
+        {% else %}
+        <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px;">
+        {% endif %}
+    </div>
+    <div>{{producto.nombre}}</div>
+    <div>{{producto.precio}}</div>
+
+</div>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+{% endblock %}
+</html>

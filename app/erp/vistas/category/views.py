@@ -55,41 +55,36 @@ def updateItem(request):
     productId = data['productName']
     action = data['action']
 
-    customer = request.user.costumer
-    product = Productos.objects.get(codigo=productId)
+    if action == 'add' or action == 'remove':
+        customer = request.user.costumer
+        product = Productos.objects.get(codigo=productId)
 
-    order, create = Order.objects.get_or_create(customer=customer, complete=False)
+        order, create = Order.objects.get_or_create(customer=customer, complete=False)
 
-    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+        orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
 
-    if action == 'add':
-        orderItem.quantity = (orderItem.quantity + 1)
+        if action == 'add':
+            orderItem.quantity = (orderItem.quantity + 1)
 
-    elif action == 'remove':
-        orderItem.quantity = (orderItem.quantity - 1)
+        elif action == 'remove':
+            orderItem.quantity = (orderItem.quantity - 1)
 
-    orderItem.save()
+        orderItem.save()
 
-    if orderItem.quantity <= 0:
-        orderItem.delete()
+        if orderItem.quantity <= 0:
+            orderItem.delete()
 
     return JsonResponse('Item was Added', safe=False)
 
 
-def encabezado(request):
-    if request.user.is_authenticated:
-        customer = request.user.costumer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cuenta = order.get_cart_items
-    else:
-        items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
-        cuenta = order['get_cart_items']
+def vista_Item(request, codigo):
 
-    context = {'items': items, 'order': order, 'cuenta': cuenta}
+    codigo = Productos.objects.get(codigo=codigo)
+    context = {'producto': codigo}
 
-    return render(request, context)
+
+    return render(request, 'detalle_producto.html', context)
+
 
 
 def processOrder(request):
@@ -103,7 +98,7 @@ def processOrder(request):
 
     else:
         print('user is not logged in')
-        customer, order = gestOrder(request,data)
+        customer, order = gestOrder(request, data)
 
 
     total = float(data['form']['total'])
