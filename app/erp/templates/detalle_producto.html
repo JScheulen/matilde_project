@@ -5,16 +5,36 @@
 {% block content %}
 {% load static %}
 <br><br><br>
-<div class="container-fluid mt-5">
-    <div>
-        {% if producto.foto %}
-        <img src="{{producto.foto}}" class="thumbnail">
-        {% else %}
-        <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 300px;">
-        {% endif %}
+<div class="container mt-5">
+
+    <div class="row mt ">
+        <div class="col-lg">
+            <div class="container mt-5 shadow" style="padding-top: 20px;padding-bottom: 10px;">
+                {% if producto.foto %}
+                <img src="{{producto.foto.url}}" class="thumbnail">
+                {% else %}
+                <img class="thumbnail" src="{% static 'lib/adminelt/img/placeholder.png' %}" style="width: 500px;">
+                {% endif %}
+
+
+            </div>
+
+
+        </div>
+        <div class="col-lg">
+            <div class="container mt-5 shadow" style="padding-top: 20px;padding-bottom: 10px;">
+                <div><a class="btn btn-outline-dark" href="{% url 'tienda' %}">Regresar</a></div>
+                <hr>
+                <div><strong style="font-size: 25px;">{{producto.nombre}}</strong></div>
+                <div style="font-size: 20px; color: #D9AAB8;">{{producto.precio}}</div>
+                <div>Unidades Disponibles: </div>
+                <div>Descripción General:  </div>
+            </div>
+
+        </div>
+
     </div>
-    <div>{{producto.nombre}}</div>
-    <div>{{producto.precio}}</div>
+
 
 </div>
 
