@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from erp.vistas.category.views import tienda, homepage, carrito, checkout, updateItem, processOrder, vista_Item
+from erp.vistas.category.views import tienda, homepage, carrito, checkout, updateItem, processOrder, vista_Item, page_not_found_404
+from django.conf.urls import handler404
 
 from django.conf.urls.static import static
 from django.conf import settings
+
+
+handler404 = page_not_found_404
 
 app_name = "gestion"
 urlpatterns = [
