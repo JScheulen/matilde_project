@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from erp.vistas.category.views import tienda, homepage, carrito, checkout, updateItem, processOrder, vista_Item, page_not_found_404
+from erp.vistas.category.views import tienda, homepage, carrito, checkout, updateItem, processOrder, vista_Item, page_not_found_404, register_user, login_user
 from django.conf.urls import handler404
 
 from django.conf.urls.static import static
@@ -33,6 +33,8 @@ urlpatterns = [
     path('tienda/', tienda, name='tienda'),
     path('cart/', carrito, name='carro'),
     path('checkout/', checkout, name='checkout'),
+    path('registro/', register_user, name='registrar'),
+    path('login/', login_user, name='conectar'),
     #Processos de Request Post
     path('update_item/', updateItem, name='update_item'),
     path('process_order/', processOrder, name='process_order'),

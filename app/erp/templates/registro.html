@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'encabezado.html' %}
+
+
+{% block content %}
+{% load static %}
+<br>
+<br>
+<div id="user-inform" class="container mt-5 shadow tienda">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>Nombre Completo {{crear.username}}</div>
+        <div>Correo Electronico {{crear.email}}</div>
+        <div>Contraseña {{crear.password1}}</div>
+        <div>Repite Contraseña {{crear.password2}}</div>
+
+        <br>
+        <button type="submit" class="btn btn-success">Registrate</button>
+    </form>
+
+
+</div>
+
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+{% endblock %}
+
+</html>

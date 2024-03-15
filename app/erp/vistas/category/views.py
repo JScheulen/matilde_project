@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from erp.models import Productos, Order, OrderItem, ShippingAdress, Costumer
-from erp.utils import cookieCart, cartData, gestOrder
+from erp.utils import cookieCart, cartData, gestOrder, CreacionUsuario
 import json
 import datetime
+from django.contrib.auth.forms import UserCreationForm
 
 
 def homepage(request):
@@ -122,3 +123,24 @@ def processOrder(request):
 
 def page_not_found_404(request, exception):
     return render(request, '404.html')
+
+def login_user(request):
+    return render(request, 'loggeo.html')
+
+def register_user(request):
+
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect("/tienda")
+    else:
+        form = UserCreationForm()
+
+
+    context = {
+        "crear": form
+    }
+    return render(request, 'registro.html', context)

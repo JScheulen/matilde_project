@@ -1,5 +1,8 @@
 from .models import Productos, Order, OrderItem, ShippingAdress, Costumer
 import json
+from django.contrib.auth.forms import UserCreationForm
+from  django.contrib.auth.models import User
+
 
 
 def cookieCart(request):
@@ -72,3 +75,9 @@ def gestOrder(request, data):
         orderitem = OrderItem.objects.create(product=product, order=order, quantity=item['quantity'])
 
     return customer, order
+
+class CreacionUsuario(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = {'username', 'email', 'password1', 'password2'}
