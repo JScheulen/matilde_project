@@ -7,24 +7,36 @@
 {% load static %}
 <br>
 <br>
-<div id="user-inform" class="container mt-5 shadow tienda">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div>Nombre Completo {{crear.username}}</div>
-        <div>Correo Electronico {{crear.email}}</div>
-        <div>Contraseña {{crear.password1}}</div>
-        <div>Repite Contraseña {{crear.password2}}</div>
+<br>
+<br>
+<div class="container h-100">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+            <div class="card border-light-subtle rounded-3 shadow-sm">
+                <div class="card-body p-1 p-md-1">
+                    <div class="text-center">
+                        <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo vertical (sin fondo).png' %}"
+                             style="width: 45%;">
+                    </div>
+                    <h2 class="fs-5 fw-normal text-center mb-4">Ingresa tus Datos</h2>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="row gy-2 overflow-hidden">
+                            <div class="col-12">
+                                <div class="form-floating mb-3">
+                                    {{crear.username}}
 
-        <br>
-        <button type="submit" class="btn btn-success">Registrate</button>
-    </form>
+                                    <label class="form-label">Nombre de Usuario</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
-
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>

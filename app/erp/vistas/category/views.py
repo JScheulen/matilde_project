@@ -131,13 +131,14 @@ def register_user(request):
 
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreacionUsuario(request.POST)
         if form.is_valid():
             form.save()
 
             return redirect("/tienda")
     else:
-        form = UserCreationForm()
+        form = CreacionUsuario()
+        print("no se pudo crear")
 
 
     context = {
