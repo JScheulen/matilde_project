@@ -1,3 +1,5 @@
+from django import forms
+
 from .models import Productos, Order, OrderItem, ShippingAdress, Costumer
 import json
 from django.contrib.auth.forms import UserCreationForm
@@ -77,7 +79,30 @@ def gestOrder(request, data):
     return customer, order
 
 class CreacionUsuario(UserCreationForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['password1'].widget.attrs['class'] = 'form-control'
+        self.fields['password1'].widget.attrs['placeholder'] = 'Contraseña'
+        self.fields['password2'].widget.attrs['class'] = 'form-control'
+        self.fields['password2'].widget.attrs['placeholder'] = 'Retipa Contraseña'
 
     class Meta:
         model = User
         fields = {'username', 'email', 'password1', 'password2'}
+        widgets = {
+            'username': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Nombre de Usuario',
+                    'id': 'name_1'
+                }
+            ),
+            'email': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'id': 'email_1',
+                    'placeholder': 'Ingrese Correo'
+                }
+            ),
+        }

@@ -14,22 +14,34 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
             <div class="card border-light-subtle rounded-3 shadow-sm">
                 <div class="card-body p-1 p-md-1">
-                    <div class="text-center">
+                    <div class="text-center mb-1">
                         <img src="{% static 'lib/adminelt/img/Matilde Atelier_Logo vertical (sin fondo).png' %}"
                              style="width: 45%;">
                     </div>
-                    <h2 class="fs-5 fw-normal text-center mb-4">Ingresa tus Datos</h2>
+                    <h1 class="fs-5 fw-normal text-center mb-5">Ingresa tus Datos</h1>
                     <form method="POST" action="">
                         {% csrf_token %}
                         <div class="row gy-2 overflow-hidden">
                             <div class="col-12">
-                                <div class="form-floating mb-3">
+                                <div class="form-floating mb-1">
                                     {{crear.username}}
-
                                     <label class="form-label">Nombre de Usuario</label>
+                                </div>
+                                <div class="form-floating mb-1">
+                                    {{crear.email}}
+                                    <label class="form-label">Ingrese Correo</label>
+                                </div>
+                                <div class="form-floating mb-1">
+                                    {{crear.password1}}
+                                    <label class="form-label">Contraseña</label>
+                                </div>
+                                <div class="form-floating mb-1">
+                                    {{crear.password2}}
+                                    <label class="form-label">Repita Contraseña</label>
                                 </div>
                             </div>
                         </div>
+                        <button type="submit" class="btn btn-success">Registrate</button>
                     </form>
 
                 </div>
