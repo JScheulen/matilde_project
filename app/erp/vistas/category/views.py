@@ -128,7 +128,10 @@ def login_user(request):
     return render(request, 'loggeo.html')
 
 def register_user(request):
-
+    cookieData = cartData(request)
+    itemsList = cookieData['itemsList']
+    items = cookieData['items']
+    order = cookieData['order']
 
     if request.method == 'POST':
         form = CreacionUsuario(request.POST)
@@ -142,6 +145,9 @@ def register_user(request):
 
 
     context = {
-        "crear": form
+        "crear": form,
+        'itemsList': itemsList,
+        'items': items,
+        'order': order
     }
     return render(request, 'registro.html', context)
